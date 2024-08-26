@@ -31,5 +31,20 @@ router.get('/total-comments', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        // console.log("asked");
+        const commentid = req.params.id;
+        const comment = await Comment.findByIdAndDelete(commentid);
+        if(!comment){
+            return res.status(404).send({ message: 'comment not found to delete' });
+        }
+        res.status(200).send({message:'deleted comment sucessfully'});
+    } catch (error) {
+        console.error('Error deleting comment', error);
+        res.status(500).send({ message: 'Failed to delete comment' });
+    }
+});
+
 
 module.exports = router;
