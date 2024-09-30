@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const FeatureSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    value: { type: String, required: true }
-});
+// const FeatureSchema = new mongoose.Schema({
+//     name: { type: String, required: true },
+//     value: { type: String, required: true }
+// });
 
 const BlogSchema = new mongoose.Schema({
     title: { type: String, required: true },
@@ -13,6 +13,7 @@ const BlogSchema = new mongoose.Schema({
     category: String, 
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     rating: Number,
+    likes:Number,
     createdAt: { type: Date, default: Date.now },
 });
 

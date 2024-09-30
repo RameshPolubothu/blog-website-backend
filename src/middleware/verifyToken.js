@@ -7,7 +7,7 @@ const verifyToken = (req, res, next) => {
         const token = req.cookies.token; 
         // console.log('Token from cookie:', token);
         if (!token) {
-            return res.status(401).send({ message: 'Token not found' });
+            return res.status(401).send({ message: 'Denied Permission' });
         }
 
         const decoded = jwt.verify(token, JWT_SECRET);

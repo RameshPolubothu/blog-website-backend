@@ -10,7 +10,7 @@ const Comment = require('../model/comment.model');
 // Create post (protected route)
 router.post('/create-post', verifyToken, isAdmin, async (req, res) => {
     try {
-        const { title, content, category, coverImg, } = req.body;
+        // const { title, content, category, coverImg, } = req.body;
 
         // console.log("UserId: ", req.userId)
         const newPost = new Blog({
@@ -57,7 +57,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a single post (protected route)
+
 router.get('/:id',async (req, res) => {
     try {
         const postId = req.params.id;
@@ -78,6 +78,7 @@ router.get('/:id',async (req, res) => {
         res.status(500).send({ message: 'Failed to fetch post' });
     }
 });
+
 
 
 // update a post (protected route)
