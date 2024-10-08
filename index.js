@@ -13,7 +13,7 @@ server.use(cookieParser());
 server.use(bodyParser.json({ limit: '10mb' }));
 server.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 server.use(cors({ 
-  origin: 'https://blog-website-backend-ebon.vercel.app',
+  origin: 'https://blog-website-frontend-gamma.vercel.app',
   credentials: true,
 }));
 
