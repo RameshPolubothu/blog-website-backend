@@ -38,7 +38,8 @@ router.post('/login', async (req, res) => {
             return res.status(401).send({ message: 'Invalid credentials' });
         }        
         const token = await generateToken(user._id); // Generate token with user ID
-        res.cookie('token', token, { httpOnly: true,
+        res.cookie('token', token, 
+            {httpOnly: true,
             secure: true, // Ensure this is true for HTTPS
             sameSite: 'None'});
         res.status(200).send({ message: 'Logged in successfully', token, user: {
@@ -53,7 +54,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Logout endpoint (optional)
+// Logout endpoint 
 router.post('/logout', (req, res) => {
     res.clearCookie('token'); 
     res.status(200).send({ message: 'Logged out successfully' });
